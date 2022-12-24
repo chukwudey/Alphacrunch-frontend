@@ -1,12 +1,10 @@
+import React from 'react';
 import './App.css';
+import IndexRoutes from './routes/indexRoutes';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        Alphacrunchy
-      </header>
-    </div>
+    <IndexRoutes/>
   );
 }
 
