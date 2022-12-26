@@ -32,13 +32,13 @@ const HomePage = () => {
         <div className=' flex flex-col min-h-screen'>
             <Header/>
             <div className=' flex space-x-4 items-center mx-auto md:text-base text-sm my-2'>
-                <NavLink exact className={({isActive}) => !isActive? cardNavLinkStyle : cardNavLinkStyle +' bg-black text-white'} to='/cryptocurrency-card'>
+                <NavLink exact='true' className={({isActive}) => !isActive? cardNavLinkStyle : cardNavLinkStyle +' bg-black text-white'} to='/cryptocurrency-card'>
                     <p>CryptoCurrency</p>
                 </NavLink>
-                <NavLink exact className={({isActive}) => !isActive? cardNavLinkStyle : cardNavLinkStyle +' bg-black text-white'} to='/giftcard-card' activeClassName='bg-black'>
+                <NavLink exact='true' className={({isActive}) => !isActive? cardNavLinkStyle : cardNavLinkStyle +' bg-black text-white'} to='/giftcard-card'>
                     <p>GiftCards</p>
                 </NavLink>
-                <NavLink exact className={({isActive}) => !isActive? cardNavLinkStyle : cardNavLinkStyle +' bg-black text-white'} to='/rates-card' activeClassName='bg-black'>
+                <NavLink exact='true' className={({isActive}) => !isActive? cardNavLinkStyle : cardNavLinkStyle +' bg-black text-white'} to='/rates-card'>
                     <p>Rates</p>
                 </NavLink>
             </div>
