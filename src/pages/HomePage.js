@@ -1,5 +1,6 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, NavLink } from 'react-router-dom';
+// import {AiOutlineLoading3Quarters} from 'react-icons/ai';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 import map_white from '../assets/map_white.svg';
@@ -7,6 +8,7 @@ import hand_bitcoin from '../assets/hand_bitcoin.png';
 import grey_suitcase from '../assets/grey_suitcase.svg'
 import { product_name } from '../constants/names';
 import PaymentSteps from '../components/PaymentSteps';
+import BlackBtn from '../components/BlackBtn';
 
 const HomePage = () => {
     const steps = [
@@ -25,11 +27,23 @@ const HomePage = () => {
             description: 'An awesome place to trade securely with no worries or delays.'
         },
     ]
+    const cardNavLinkStyle = ' w-max text-black hover:text-black hover:bg-white hover:border-black border-2 border-transparent px-4 py-1 md:px-14 md:py-2 rounded-2xl'
     return (
         <div className=' flex flex-col min-h-screen'>
             <Header/>
+            <div className=' flex space-x-4 items-center mx-auto md:text-base text-sm my-2'>
+                <NavLink exact className={({isActive}) => !isActive? cardNavLinkStyle : cardNavLinkStyle +' bg-black text-white'} to='/cryptocurrency-card'>
+                    <p>CryptoCurrency</p>
+                </NavLink>
+                <NavLink exact className={({isActive}) => !isActive? cardNavLinkStyle : cardNavLinkStyle +' bg-black text-white'} to='/giftcard-card' activeClassName='bg-black'>
+                    <p>GiftCards</p>
+                </NavLink>
+                <NavLink exact className={({isActive}) => !isActive? cardNavLinkStyle : cardNavLinkStyle +' bg-black text-white'} to='/rates-card' activeClassName='bg-black'>
+                    <p>Rates</p>
+                </NavLink>
+            </div>
             <Outlet/>
-
+            {/* steps section */}
             <div className={` flex flex-col-reverse md:flex md:flex-row justify-start items-center mx-auto bg-gray-100 w-full pt-4`}>
                 <div className=' md:w-3/5'>
                     <img className='md:w-3/5 -ml-1' src={hand_bitcoin} alt="hand holding bitcoin"/>
@@ -39,7 +53,7 @@ const HomePage = () => {
                     {steps.map(e =>
                         <PaymentSteps position={e.position} description={e.description} title={e.title} icon={grey_suitcase}/>
                     )}
-                    
+                    <BlackBtn url='' text='Start Trading'/>
                 </div>
             </div>
 
