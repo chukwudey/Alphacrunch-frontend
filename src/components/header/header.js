@@ -1,16 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { linkStyle } from '../../constants/styles';
+import { product_name } from '../../constants/names';
 
 const Header = () => {
-    const linkStyle = `
-        hover:text-yellow-600 
-        cursor-pointer 
-        border-b-4
-        border-transparent 
-        hover:border-solid 
-        hover:border-yellow-600 
-        transition-all 
-        ease-in-out`;
 
     const linkStyleActive = `
         text-yellow-600 
@@ -22,9 +15,9 @@ const Header = () => {
         ease-in-out`;
 
     return (
-        <div className='flex justify-between align-middle bg-pri-pink px-20 p-4'>
+        <div className='flex justify-between align-middle bg-pri-pink px-20 p-4 font-Space-Grotesk'>
             <div className="text-black font-extrabold text-xl hover:text-yellow-600 transition-all ease-in cursor-pointer">
-                Alphacrunch
+                {product_name}
             </div>
             <div className=' hidden md:flex font-semibold justify-evenly space-x-6'>
                 <NavLink className={linkStyle} to='/signup' activeClassName={linkStyleActive}>
