@@ -2,32 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from '../pages/HomePage';
 import GiftcardsCard from '../components/GiftcardsCard';
-// import bank_card from '../assets/bank_cards.svg';
-// import phone_crypto from '../assets/phone_crypto.svg';
 import { cryptocard_card_details, giftcard_card_details, ratecard_card_details } from '../constants/names';
 
 const IndexRoutes = () => {
-    // const giftcard_card_details = {
-    //     title : 'Giftcard',
-    //     description: 'Our mission at AlphaCrunch is to offer a safe and uniquely user-friendly platform for everyday Nigerians to access the world of cryptocurrency starting with these recognised coins.',
-    //     list:['Itunes', 'Steam', 'Google', 'Visa', 'Amazon', 'Nike'],
-    //     image: bank_card
-    // }
     
-    //  const cryptocard_card_details = {
-    //     title : 'Cryptocurrency',
-    //     description: 'Our mission at AlphaCrunch is to offer a safe and uniquely user-friendly platform for everyday Nigerians to access the world of cryptocurrency starting with these recognised coins.',
-    //     list:['Bitcoin', 'Ethereum', 'Litecoin', 'Tether', 'Dai'],
-    //     image: phone_crypto
-    // }
-    
-    // const ratecard_card_details = {
-    //     title : 'Rates',
-    //     description: 'Our mission at AlphaCrunch is to offer a safe and uniquely user-friendly platform for everyday Nigerians to access the world of cryptocurrency starting with these recognised coins.',
-    //     list:['Cheap', 'Current', 'Trusted'],
-    //     image: bank_card
-    // }
-    debugger;
     return (
         <Router>
             <Routes>
