@@ -1,5 +1,9 @@
 import bank_card from '../assets/bank_cards.svg';
 import phone_crypto from '../assets/phone_crypto.svg';
+import bitcoin_grey from '../assets/bitcoin_grey.svg';
+import suitcase_flow from '../assets/suitcase_flow.svg';
+import dollar_bitcoin from '../assets/dollar_bitcoin.svg';
+import smooth_flow from '../assets/smooth_flow.svg';
 
 export const product_name = 'Alphacrunch';
 export const giftcard_card_details = {
@@ -22,3 +26,28 @@ export const ratecard_card_details = {
     list:['Cheap', 'Current', 'Trusted'],
     image: bank_card
 }
+
+
+// transactions card details
+export const trans_card_details = [
+    {
+        title : 'Swift Transactions',
+        description: 'An awesome place to trade securely with no worries or delay.',
+        image: dollar_bitcoin
+    },
+    {
+        title : 'Best Rates',
+        description: 'An awesome place to trade securely with no worries or delay.',
+        image: bitcoin_grey
+    },
+    {
+        title : 'Smooth Payments',
+        description: 'An awesome place to trade securely with no worries or delay.',
+        image: smooth_flow
+    },
+    {
+        title : 'On-The-Go Solutions',
+        description: 'An awesome place to trade securely with no worries or delay.',
+        image: suitcase_flow
+    }
+]

@@ -6,9 +6,10 @@ import Footer from '../components/footer/footer';
 import map_white from '../assets/map_white.svg';
 import hand_bitcoin from '../assets/hand_bitcoin.png';
 import grey_suitcase from '../assets/grey_suitcase.svg'
-import { product_name } from '../constants/names';
+import { product_name, trans_card_details } from '../constants/details';
 import PaymentSteps from '../components/PaymentSteps';
 import BlackBtn from '../components/BlackBtn';
+import FeaturesCard from '../components/FeaturesCard';
 
 const HomePage = () => {
     const steps = [
@@ -31,6 +32,16 @@ const HomePage = () => {
     return (
         <div className=' flex flex-col min-h-screen'>
             <Header/>
+            <div className=' my-8'>
+                <h2 className=' text-4xl text-center font-bold'>We Are More Than An Exchange.</h2>
+                <p className=' text-center'>An awesome place to trade securely with no worries or delay. It is perfectly built for you.</p>
+                <div className=' grid grid-cols-2 w-max mx-auto my-4 place-items-center'>
+                    {trans_card_details? trans_card_details.map(e => 
+                        <FeaturesCard title={e.title} description={e.description} image={e.image} />
+                    ): <p>loading...</p>
+                }
+                </div>
+            </div>
             <div className=' flex space-x-4 items-center mx-auto md:text-base text-sm my-2'>
                 <NavLink exact='true' className={({isActive}) => !isActive? cardNavLinkStyle : cardNavLinkStyle +' bg-black text-white'} to='/cryptocurrency-card'>
                     <p>CryptoCurrency</p>

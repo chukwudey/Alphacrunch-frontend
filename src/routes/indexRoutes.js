@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from '../pages/HomePage';
 import GiftcardsCard from '../components/GiftcardsCard';
-import { cryptocard_card_details, giftcard_card_details, ratecard_card_details } from '../constants/names';
+import { cryptocard_card_details, giftcard_card_details, ratecard_card_details } from '../constants/details';
 
 const IndexRoutes = () => {
     
@@ -10,7 +10,11 @@ const IndexRoutes = () => {
         <Router>
             <Routes>
                 <Route path='/' element={<HomePage/>}>
-                    <Route index element={<GiftcardsCard/>}/>
+                    <Route index element={<GiftcardsCard 
+                        list={giftcard_card_details.list}
+                        title={giftcard_card_details.title} 
+                        image={giftcard_card_details.image}
+                        description={giftcard_card_details.description} />}/>
                     <Route path='giftcard-card' element={<GiftcardsCard 
                         list={giftcard_card_details.list}
                         title={giftcard_card_details.title} 

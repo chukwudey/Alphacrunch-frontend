@@ -5,6 +5,7 @@ import BlackBtn from './BlackBtn';
 
 const GiftcardsCard = (props) => {
     const {title,description,list,image} = props;
+    
   return (
     <div className=' md:flex justify-between bg-pri-pink mx-auto my-4 rounded-2xl px-20 pt-20 w-11/12'>
         <div className=' md:w-2/5 mb-2'>

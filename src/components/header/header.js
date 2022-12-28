@@ -1,18 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { linkStyle } from '../../constants/styles';
-import { product_name } from '../../constants/names';
+import { product_name } from '../../constants/details';
 
 const Header = () => {
-
-    const linkStyleActive = `
-        text-yellow-600 
-        cursor-pointer 
-        border-b-4
-        border-solid 
-        border-yellow-600 
-        transition-all 
-        ease-in-out`;
 
     return (
         <div className='flex justify-between align-middle bg-pri-pink px-20 p-4 font-Space-Grotesk'>
@@ -20,16 +11,16 @@ const Header = () => {
                 {product_name}
             </div>
             <div className=' hidden md:flex font-semibold justify-evenly space-x-6'>
-                <NavLink className={linkStyle} to='/signup' activeClassName={linkStyleActive}>
+                <NavLink className={linkStyle} to='/signup'>
                     <p>CryptoCurrency</p>
                 </NavLink>
-                <NavLink className={linkStyle} to='' activeClassName={linkStyleActive}>
+                <NavLink className={linkStyle} to=''>
                     <p>Giftcarts</p>
                 </NavLink>
-                <NavLink className={linkStyle} to='' activeClassName={linkStyleActive}>
+                <NavLink className={linkStyle} to=''>
                     <p>Rates</p>
                 </NavLink>
-                <NavLink className={linkStyle} to='' activeClassName={linkStyleActive}>
+                <NavLink className={linkStyle} to=''>
                     <p>About Us</p>
                 </NavLink>
             </div>
