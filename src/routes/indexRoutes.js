@@ -4,6 +4,7 @@ import HomePage from '../pages/HomePage';
 import GiftcardsCard from '../components/GiftcardsCard';
 import { cryptocard_card_details, giftcard_card_details, ratecard_card_details } from '../constants/details';
 import LoginPage from '../pages/LoginPage';
+import SignupPage from '../pages/SignupPage';
 
 const IndexRoutes = () => {
     
@@ -28,7 +29,7 @@ const IndexRoutes = () => {
                         image={ratecard_card_details.image}
                         description={ratecard_card_details.description} />}/>
                 </Route>
-                <Route path='/signup' element={<LoginPage/>} />
+                <Route path='/signup' element={<SignupPage/>} />
                 <Route path='/signin' element={<LoginPage/>} />
                 {/* <Route path='/ForgotPassword' element={<ForgotPasswordPage />} />
                 <Route path='/ResetPassword' element={<ResetPasswordPage />} />
