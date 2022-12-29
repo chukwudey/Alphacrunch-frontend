@@ -7,7 +7,7 @@ const GiftcardsCard = (props) => {
     const {title,description,list,image} = props;
     
   return (
-    <div className=' md:flex justify-between bg-pri-pink mx-auto my-4 rounded-2xl px-20 pt-20 w-11/12'>
+    <section className=' md:flex justify-between bg-pri-pink mx-auto my-4 rounded-2xl px-20 pt-20 w-11/12'>
         <div className=' md:w-2/5 mb-2'>
             <h3 className=' text-2xl font-semibold mb-6'>{title}</h3>
             <p>{description}</p>
@@ -28,7 +28,7 @@ const GiftcardsCard = (props) => {
         <div className=''>
             <img className='' src={image} alt="bank cards stacked on each other like a fan"/>
         </div>
-    </div>
+    </section>
   )
 }
 
