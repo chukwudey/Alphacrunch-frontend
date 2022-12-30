@@ -20,6 +20,8 @@ module.exports = {
         DEFAULT: '#000000',
         light: '#F8F8F8'
       },
+      'cream-pink': '#F8F8F8',
+      'pri-grey': '#333333'
       }
     },
   },

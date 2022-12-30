@@ -19,7 +19,7 @@ const LoginPage = () => {
       <div className=' w-full md:w-7/12'>
         <form className=' mx-auto p-8 block'>
             <h1 className=' text-3xl md:text-5xl text-yellow-500 text-center mb-4 '>Welcome Chief! <span role='img' aria-label="Waving Hand" className=' border-none'>&#128075;</span></h1>
-            <p className=' text-center text-xl mb-8'>Signin to continue</p>
+            <p className=' text-center text-xl mb-8'>Sign In to continue</p>
             <div className=' border border-solid border-gray-500 rounded-lg p-0 overflow-hidden focus:outline-none mx-auto w-2/3 my-4'>
                 <input type="email" className=' pl-6 pr-1 py-2 w-full' name="email" value={formData.email} onChange={(e)=> setFormData({email: e.currentTarget.value})} placeholder='Enter Your Email'/>
             </div>

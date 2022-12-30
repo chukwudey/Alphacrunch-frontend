@@ -7,8 +7,9 @@ import map_white from '../assets/map_white.svg';
 import hand_bitcoin from '../assets/hand_bitcoin.png';
 import $ from '../assets/$.svg'
 import grey_suitcase from '../assets/grey_suitcase.svg';
+import striped_gray_line_bg from '../assets/striped_gray_line_bg.svg';
 import group_phone_coins from '../assets/group_phone_coins.svg';
-import { product_name, trans_card_details } from '../constants/details';
+import { trans_card_details } from '../constants/details';
 import PaymentSteps from '../components/PaymentSteps';
 import BlackBtn from '../components/BlackBtn';
 import FeaturesCard from '../components/FeaturesCard';
@@ -35,14 +36,14 @@ const HomePage = () => {
     return (
         <div className=' flex flex-col min-h-screen'>
             <Header/>
-            <section className=' block md:flex justify-center mx-auto'>
+            <section className={` block md:flex justify-center mx-auto mt-8 w-full bg-cream-pink bg-[url('${striped_gray_line_bg}')]`}>
                 <div className=' p-4 md:w-5/12'>
                     <h2 className=' font-bold text-4xl md:text-6xl my-8 font-Space-Grotesk w-3/4 md:w-full text-center md:text-left mx-auto'>Your one stop solution for your Giftcard and Crypto exchange</h2>
-                    <p className=' md:w-11/12 mb-8 text-center mx-auto'>An awesome place to trade securely with no worries or delay. It is perfectly built for you.</p>
-                    <div className=' hidden md:flex justify-start items-center space-x-2 mx-auto'>
+                    <p className=' md:w-11/12 mb-8 text-center md:text-left mx-auto md:mx-0'>An awesome place to trade securely with no worries or delay. It is perfectly built for you.</p>
+                    <div className=' hidden md:flex justify-start items-center space-x-4 mx-auto'>
                         <BlackBtn url='/signup' text='Start Trading'/>
                         <Link to=''>
-                            <div className=' flex justify-center items-center bg-white hover:bg-black hover:text-white px-8 py-4 border border-black w-max rounded-2xl'>
+                            <div className=' flex justify-center items-center bg-white hover:bg-black hover:text-white px-8 py-3 border border-black w-max rounded-2xl'>
                                 <p>Checkout Rates</p>
                                 <img src={$} alt="dollar"/>
                             </div>
@@ -63,13 +64,13 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div className=''>
-                    <img src={group_phone_coins} alt="phone with bitcoin, etheruem, litecoin and other shapes around"/>
+                    <img src={group_phone_coins} className=' ml-12 w-4/5' alt="phone with bitcoin, etheruem, litecoin and other shapes around"/>
                 </div>
             </section>
 
-            <section className=' w-5/6 mx-auto my-8'>
-                <h2 className=' text-xl md:text-4xl text-center font-bold'>We Are More Than An Exchange.</h2>
-                <p className=' text-xs md:text-base text-center'>An awesome place to trade securely with no worries or delay. It is perfectly built for you.</p>
+            <section className=' w-5/6 mx-auto my-20'>
+                <h2 className=' text-xl md:text-5xl text-center font-bold font-Space-Grotesk mb-10'>We Are More Than An Exchange.</h2>
+                <p className=' text-xs md:text-2xl text-center'>An awesome place to trade securely with no worries or delay. It is perfectly built for you.</p>
                 <div className=' flex overflow-hidden md:grid md:grid-cols-2 w-max mx-auto my-4 place-items-center'>
                     {trans_card_details? trans_card_details.map(e => 
                         <FeaturesCard title={e.title} description={e.description} image={e.image} />
@@ -91,15 +92,14 @@ const HomePage = () => {
             </nav>
             <Outlet/>
             {/* steps section */}
-            <section className={` flex flex-col-reverse md:flex md:flex-row justify-start items-center mx-auto bg-gray-100 w-full pt-4`}>
+            <section className={` flex flex-col-reverse md:flex md:flex-row justify-start items-center mx-auto my-12 bg-gray-100 w-full pt-4`}>
                 <div className=' md:w-3/5'>
                     <img className='md:w-3/5 -ml-1' src={hand_bitcoin} alt="hand holding bitcoin"/>
                 </div>
-                <div className=' w-10/12 md:w-2/5 mb-4 text-center md:text-left'>
-                    <p className=' font-Space-Grotesk text-2xl font-bold mb-6'>Get started with <br/> {product_name} in {steps.length} easy steps.</p>
+                <div className=' w-10/12 md:w-4/5 mb-4 text-center md:text-left'>
+                    <p className=' font-Space-Grotesk text-5xl font-bold my-16 text-pri-grey'>Get started with <br/> Alpha in {steps.length} easy steps.</p>
                     {steps.map(e =>
                         <PaymentSteps position={e.position} description={e.description} title={e.title} icon={grey_suitcase}/>
-                    
                     )}
                     <BlackBtn url='' text='Start Trading'/>
                 </div>

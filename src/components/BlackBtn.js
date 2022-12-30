@@ -6,7 +6,7 @@ const BlackBtn = (props) => {
   return (
     <div>
         <Link  to={url}>
-            <p className=' w-max bg-black text-white hover:text-black hover:bg-white hover:border-black border-2 border-transparent px-14 py-4 rounded-2xl'>{text}</p>
+            <p className=' w-max bg-black text-white hover:text-black hover:bg-white hover:border-black border-2 border-transparent px-14 py-3 rounded-2xl'>{text}</p>
         </Link>
     </div>
   )

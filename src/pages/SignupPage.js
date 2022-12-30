@@ -55,8 +55,8 @@ const SignupPage = () => {
       <div className=' w-full md:w-7/12'>
         <form className=' mx-auto p-8 block'>
             <h1 className=' text-center'>Welcome to {product_name}</h1>
-            <h2 className=' text-3xl md:text-4xl text-yellow-500 text-center mb-4 '>So good to have you, Chief! <span role='img' aria-label="Waving Hand" className=' border-none'>&#128075;</span></h2>
-            <p className=' text-center text-xl mb-8'>Lets get you started ASAP! Kindly fill in the correct informations</p>
+            <h2 className=' text-3xl md:text-3xl text-yellow-500 text-center mb-4 '>So good to have you, Chief! <span role='img' aria-label="Waving Hand" className=' border-none'>&#128075;</span></h2>
+            <p className=' text-center text-lg mb-8'>Lets get you started ASAP! Kindly fill in the correct informations</p>
             <div className=' border border-solid border-gray-500 rounded-lg p-0 overflow-hidden focus:outline-none mx-auto w-2/3 my-4'>
                 <input type="email" className=' pl-6 pr-1 py-2 w-full' name="email" value={formData.email} onChange={(e)=> setFormData({email: e.currentTarget.value})} placeholder='Enter Your Email' required/>
             </div>

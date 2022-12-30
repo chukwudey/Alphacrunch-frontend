@@ -37,7 +37,7 @@ const Header = () => {
             
             <div className='hidden md:flex space-x-2'>
                 <Link to={interlinks.signin_link}>
-                    <button className=' border-solid border border-black rounded-md hover:bg-black hover:text-white py-1 px-7' type="button">Signin</button> 
+                    <button className=' border-solid border border-black rounded-md hover:bg-black hover:text-white py-1 px-7' type="button">Sign In</button> 
                 </Link>
                 
                 <Link to={interlinks.signup_link}>
