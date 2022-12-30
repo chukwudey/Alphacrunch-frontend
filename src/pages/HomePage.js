@@ -1,13 +1,11 @@
 import React from 'react';
 import { Outlet, NavLink, Link } from 'react-router-dom';
-// import {AiOutlineLoading3Quarters} from 'react-icons/ai';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 import map_white from '../assets/map_white.svg';
 import hand_bitcoin from '../assets/hand_bitcoin.png';
 import $ from '../assets/$.svg'
 import grey_suitcase from '../assets/grey_suitcase.svg';
-import striped_gray_line_bg from '../assets/striped_gray_line_bg.svg';
 import group_phone_coins from '../assets/group_phone_coins.svg';
 import { trans_card_details } from '../constants/details';
 import PaymentSteps from '../components/PaymentSteps';
@@ -36,7 +34,7 @@ const HomePage = () => {
     return (
         <div className=' flex flex-col min-h-screen'>
             <Header/>
-            <section className={` block md:flex justify-center mx-auto mt-8 w-full bg-cream-pink bg-[url('${striped_gray_line_bg}')]`}>
+            <section className={` block md:flex justify-center mx-auto pt-8 w-full bg-cream-pink bg-striped-up bg-no-repeat bg-contain bg-right-top`}>
                 <div className=' p-4 md:w-5/12'>
                     <h2 className=' font-bold text-4xl md:text-6xl my-8 font-Space-Grotesk w-3/4 md:w-full text-center md:text-left mx-auto'>Your one stop solution for your Giftcard and Crypto exchange</h2>
                     <p className=' md:w-11/12 mb-8 text-center md:text-left mx-auto md:mx-0'>An awesome place to trade securely with no worries or delay. It is perfectly built for you.</p>
@@ -68,15 +66,18 @@ const HomePage = () => {
                 </div>
             </section>
 
-            <section className=' w-5/6 mx-auto my-20'>
-                <h2 className=' text-xl md:text-5xl text-center font-bold font-Space-Grotesk mb-10'>We Are More Than An Exchange.</h2>
-                <p className=' text-xs md:text-2xl text-center'>An awesome place to trade securely with no worries or delay. It is perfectly built for you.</p>
-                <div className=' flex overflow-hidden md:grid md:grid-cols-2 w-max mx-auto my-4 place-items-center'>
-                    {trans_card_details? trans_card_details.map(e => 
-                        <FeaturesCard title={e.title} description={e.description} image={e.image} />
-                    ): <p>loading...</p>
-                }
+            <section className=' bg-striped-down bg-no-repeat bg-contain bg-right-top mb-8'>
+                <div className=' w-5/6 mx-auto my-20'>
+                    <h2 className=' text-xl md:text-5xl text-center font-bold font-Space-Grotesk mb-10'>We Are More Than An Exchange.</h2>
+                    <p className=' text-xs md:text-2xl text-center'>An awesome place to trade securely with no worries or delay. It is perfectly built for you.</p>
+                    <div className=' flex overflow-hidden md:grid md:grid-cols-2 w-max mx-auto my-4 place-items-center'>
+                        {trans_card_details? trans_card_details.map(e => 
+                            <FeaturesCard title={e.title} description={e.description} image={e.image} />
+                        ): <p>loading...</p>
+                    }
+                    </div>
                 </div>
+                
             </section>
 
             <nav className=' flex space-x-4 items-center mx-auto md:text-base text-sm my-2'>

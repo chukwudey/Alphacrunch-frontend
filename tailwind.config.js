@@ -11,6 +11,10 @@ module.exports = {
       fontFamily: {
         'Space-Grotesk': ['"Space Grotesk"', ...defaultTheme.fontFamily.sans],
       },
+      backgroundImage: {
+        'striped-down': "url('../src/assets/striped_gray_line_bg.svg')",
+        'striped-up': "url('../src/assets/striped_bg.svg')"
+      },
       colors: {
       'pri-pink':{
         DEFAULT: '#EFDFBD',
