@@ -37,11 +37,11 @@ const HomePage = () => {
             <section className={` block md:flex justify-center mx-auto pt-8 w-full bg-cream-pink bg-striped-up bg-no-repeat bg-contain bg-right-top`}>
                 <div className=' p-4 md:w-5/12'>
                     <h2 className=' font-bold text-4xl md:text-6xl my-8 font-Space-Grotesk w-3/4 md:w-full text-center md:text-left mx-auto'>Your one stop solution for your Giftcard and Crypto exchange</h2>
-                    <p className=' md:w-11/12 mb-8 text-center md:text-left mx-auto md:mx-0'>An awesome place to trade securely with no worries or delay. It is perfectly built for you.</p>
+                    <p className=' font-inter md:w-11/12 mb-8 text-center md:text-left mx-auto md:mx-0'>An awesome place to trade securely with no worries or delay. It is perfectly built for you.</p>
                     <div className=' hidden md:flex justify-start items-center space-x-4 mx-auto'>
                         <BlackBtn url='/signup' text='Start Trading'/>
                         <Link to=''>
-                            <div className=' flex justify-center items-center bg-white hover:bg-black hover:text-white px-8 py-3 border border-black w-max rounded-2xl'>
+                            <div className=' font-Space-Grotesk flex justify-center items-center bg-white hover:bg-black hover:text-white px-8 py-3 border border-black w-max rounded-2xl'>
                                 <p>Checkout Rates</p>
                                 <img src={$} alt="dollar"/>
                             </div>
@@ -49,12 +49,12 @@ const HomePage = () => {
                     </div>
                     <div className=' md:hidden mx-auto'>
                         <Link to={interlinks.signup_link}>
-                            <div className=' flex justify-center items-center bg-black text-white hover:bg-white hover:text-black px-8 py-4 border border-black w-full rounded-2xl'>
+                            <div className=' font-Space-Grotesk flex justify-center items-center bg-black text-white hover:bg-white hover:text-black px-8 py-4 border border-black w-full rounded-2xl'>
                                 <p>Start Trading</p>
                             </div>
                         </Link>
                         <Link to=''>
-                            <div className=' flex justify-center items-center bg-white hover:bg-black hover:text-white px-8 py-4 border border-black w-full rounded-2xl'>
+                            <div className=' font-Space-Grotesk flex justify-center items-center bg-white hover:bg-black hover:text-white px-8 py-4 border border-black w-full rounded-2xl'>
                                 <p>Checkout Rates</p>
                                 <img src={$} alt="dollar"/>
                             </div>
@@ -69,7 +69,7 @@ const HomePage = () => {
             <section className=' bg-striped-down bg-no-repeat bg-contain bg-right-top mb-8'>
                 <div className=' w-5/6 mx-auto my-20'>
                     <h2 className=' text-xl md:text-5xl text-center font-bold font-Space-Grotesk mb-10'>We Are More Than An Exchange.</h2>
-                    <p className=' text-xs md:text-2xl text-center'>An awesome place to trade securely with no worries or delay. It is perfectly built for you.</p>
+                    <p className=' font-inter text-xs md:text-2xl text-center'>An awesome place to trade securely with no worries or delay. It is perfectly built for you.</p>
                     <div className=' flex overflow-hidden md:grid md:grid-cols-2 w-max mx-auto my-4 place-items-center'>
                         {trans_card_details? trans_card_details.map(e => 
                             <FeaturesCard title={e.title} description={e.description} image={e.image} />
@@ -80,7 +80,7 @@ const HomePage = () => {
                 
             </section>
 
-            <nav className=' flex space-x-4 items-center mx-auto md:text-base text-sm my-2'>
+            <nav className=' flex space-x-2 items-center mx-auto md:text-base text-sm my-2'>
                 <NavLink exact='true' className={({isActive}) => !isActive? cardNavLinkStyle : cardNavLinkStyle +' bg-black text-white'} to='/cryptocurrency-card'>
                     <p>CryptoCurrency</p>
                 </NavLink>
@@ -112,7 +112,7 @@ const HomePage = () => {
                     <img src={map_white} alt="map of the world in dotted black and white with black background"/>
                 </div>
                 <div className='hidden md:block'>
-                    <p>Be Limitless, Get a secure <br/> wallet address in 5 seconds.</p>
+                    <p className=' font-Space-Grotesk'>Be Limitless, Get a secure <br/> wallet address in 5 seconds.</p>
                 </div>
             </section>
             <Footer/>

@@ -9,7 +9,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'Space-Grotesk': ['"Space Grotesk"', ...defaultTheme.fontFamily.sans],
+        'inter': ['"inter"', ...defaultTheme.fontFamily.sans],
+        'Space-Grotesk': "Space Grotesk"
       },
       backgroundImage: {
         'striped-down': "url('../src/assets/striped_gray_line_bg.svg')",

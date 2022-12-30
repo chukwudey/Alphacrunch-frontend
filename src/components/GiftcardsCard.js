@@ -10,14 +10,14 @@ const GiftcardsCard = (props) => {
     <section className=' md:flex justify-between bg-pri-pink mx-auto my-4 rounded-2xl px-20 pt-20 w-11/12'>
         <div className=' md:w-2/5 mb-2'>
             <h3 className=' text-2xl font-semibold mb-6'>{title}</h3>
-            <p>{description}</p>
+            <p className=' font-inter'>{description}</p>
             <div className=' mb-12'>
                 {list? list.map(e => 
                     <div className=' flex space-x-1 m-4'>
                         <div>
                             <img src={circle_tick_good_black_bg} alt="checked"/>
                         </div>
-                        <p>{e}</p>
+                        <p className=' font-inter'>{e}</p>
                     </div>
                 ) : <AiOutlineLoading3Quarters/>}
             </div>

@@ -8,7 +8,7 @@ const FeaturesCard = (props) => {
         <img src={image} className=' w-1/6' alt={title}/>
       </div>
       <p className=' text-2xl font-semibold mb-4 font-Space-Grotesk'>{title}</p>
-      <p>{description}</p>
+      <p className=' font-inter'>{description}</p>
     </div>
   )
 }

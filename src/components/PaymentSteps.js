@@ -9,7 +9,7 @@ const PaymentSteps = (props) => {
       </div>
       <div className=' text-left'>
         <p className=' text-lg font-bold mb-2 font-Space-Grotesk'>{position}. {title}</p>
-        <p className=' text-xs md:text-sm text-gray-500 w-2/3'>{description}</p>
+        <p className=' text-xs md:text-sm text-gray-500 w-2/3 font-inter'>{description}</p>
       </div>
     </div>
   )

@@ -11,7 +11,7 @@ const Header = () => {
             <div className="text-black font-extrabold text-xl hover:text-yellow-600 transition-all ease-in cursor-pointer">
                 {product_name}
             </div>
-            <nav className=' hidden md:flex font-semibold justify-evenly space-x-6'>
+            <nav className=' hidden md:flex md:items-baseline font-semibold justify-evenly space-x-6'>
                 <NavLink className={linkStyle} to=''>
                     <p>CryptoCurrency</p>
                 </NavLink>
