@@ -104,7 +104,7 @@ const HomePage = () => {
                     {steps.map(e =>
                         <PaymentSteps position={e.position} description={e.description} title={e.title} icon={grey_suitcase}/>
                     )}
-                    <BlackBtn url='' text='Start Trading'/>
+                    <BlackBtn url='' text='Trade With Us'/>
                 </div>
             </section>
 

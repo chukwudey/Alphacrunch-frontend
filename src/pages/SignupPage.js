@@ -30,7 +30,7 @@ const SignupPage = () => {
       setShowPasswordStrength(true);
       if (strongRegex.test(formData.password + e.currentTarget.value)) {
         setPasswordStrength({
-          name: 'strong',
+          name: 'Strong',
           color: 'green',
           message: 'Good to go'
         });

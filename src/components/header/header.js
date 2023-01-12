@@ -27,7 +27,7 @@ const Header = () => {
             </nav>
             <div className=' relative block md:hidden'>
                 <p className=' cursor-pointer hover:bg-yellow-700 hover:text-white px-2 py-1 text-4xl font-bold md:hidden block rounded-md' onClick={()=>setShow(!show)} >{show? <>&#9932;</>: <>&#9778;</>}</p>
-                <nav className={`${show? 'flex': 'hidden'} flex-col gap-8 md:hidden justify-start items-start absolute right-full bg-pri-pink p-4 w-full text-left z-10 shadow-md rounded-md`}>
+                <nav className={`${show? 'flex': 'hidden'} flex-col gap-8 md:hidden justify-start items-start absolute right-full bg-pri-pink p-4 text-left z-10 shadow-md rounded-md`}>
                     <p className={linkStyle}>CryptoCurrency</p>
                     <p className={linkStyle}>Giftcards</p>
                     <p className={linkStyle}>Rates</p>

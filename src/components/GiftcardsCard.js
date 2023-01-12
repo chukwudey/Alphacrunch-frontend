@@ -22,7 +22,7 @@ const GiftcardsCard = (props) => {
                 ) : <AiOutlineLoading3Quarters/>}
             </div>
             <div className=' text-center md:mb-12'>
-                <BlackBtn url='' text='Start Trading'/>
+                <BlackBtn url='' text='Trade With Us'/>
             </div>
         </div>
         <div className=''>
