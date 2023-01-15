@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {AiOutlineEye, AiOutlineEyeInvisible} from 'react-icons/ai';
 import signin_bg from '../assets/signin_bg.png';
 import { product_name } from '../constants/details';
@@ -9,6 +9,7 @@ import { LOGIN_URL } from '../constants/links';
 import { Bars } from 'react-loader-spinner';
 
 const LoginPage = () => {
+  const navigate = useNavigate();
     const [show, setShow] = useState(false);
     const [loading, setLoading] = useState(false)
 
@@ -27,7 +28,8 @@ const LoginPage = () => {
         }).then(res => {
             setLoading(false);
             console.log(res);
-            localStorage.setItem('user',JSON.stringify(res.data))
+            localStorage.setItem('user',JSON.stringify(res.data));
+            navigate('/dashboard');
         }).catch(err => {
             setLoading(false);
             console.log(err);
@@ -46,7 +48,7 @@ const LoginPage = () => {
                 <h1 className=' text-3xl md:text-5xl text-yellow-500 text-center mb-4 '>Welcome Chief! <span role='img' aria-label="Waving Hand" className=' border-none'>&#128075;</span></h1>
                 <p className=' text-center text-xl mb-8'>Sign In to continue</p>
                 <div className=' border border-solid border-gray-500 rounded-lg p-0 overflow-hidden focus:outline-none mx-auto w-2/3 my-4'>
-                    <input type="email" className=' pl-6 pr-1 py-2 w-full' name="email" disabled={loading} value={email} onChange={(e)=> setEmail( e.target.value)} placeholder='Enter Your Email'/>
+                    <input type="email" className=' pl-6 pr-1 py-2 w-full' name="email" disabled={loading} value={email} onChange={(e)=> setEmail( e.target.value)} placeholder='Enter Your Email' required/>
                 </div>
                 <div className=' flex justify-between items-center border border-solid border-gray-500 rounded-lg p-0 overflow-hidden mx-auto mb-2 focus:outline-none w-2/3'>
                     <input type={show? 'text': 'password'} 
@@ -55,6 +57,7 @@ const LoginPage = () => {
                         value={password}
                         onChange={(e)=> setPassword(e.target.value)}
                         disabled={loading}
+                        required
                         placeholder='Password'/>
                     {show? 
                         <div className={eyeStyle}>
@@ -64,7 +67,7 @@ const LoginPage = () => {
                             <AiOutlineEye onClick={()=> setShow(!show)}/>
                         </div> }
                 </div>
-                <Link>
+                <Link to='/forgot-password'>
                     <p className=' text-yellow-500 cursor-pointer w-4/6 mx-auto mb-8'>Forgot password?</p>
                 </Link>
                     {!loading? 

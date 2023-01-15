@@ -5,6 +5,9 @@ import GiftcardsCard from '../components/GiftcardsCard';
 import { cryptocard_card_details, giftcard_card_details, ratecard_card_details } from '../constants/details';
 import LoginPage from '../pages/LoginPage';
 import SignupPage from '../pages/SignupPage';
+import ForgotPasswordPage from '../pages/ForgotPasswordPage';
+import ResetPasswordPage from '../pages/ResetPasswordPage';
+import DashboardPage from '../pages/DashboardPage';
 
 const IndexRoutes = () => {
     
@@ -12,7 +15,7 @@ const IndexRoutes = () => {
         <Router>
             <Routes>
                 <Route path='/' element={<HomePage/>}>
-                    <Route index element={<Navigate to='giftcard-card'/>}/>
+                    <Route index element={<Navigate to='cryptocurrency-card'/>}/>
                     <Route path='giftcard-card' element={<GiftcardsCard 
                         list={giftcard_card_details.list}
                         title={giftcard_card_details.title} 
@@ -31,6 +34,10 @@ const IndexRoutes = () => {
                 </Route>
                 <Route path='/signup' element={<SignupPage/>} />
                 <Route path='/signin' element={<LoginPage/>} />
+                <Route path='/dashboard' element={<DashboardPage/>}>
+                </Route>
+                <Route path='/forgot-password' element={<ForgotPasswordPage/>} />
+                <Route path='/reset-password' element={<ResetPasswordPage/>} />
                 {/* <Route path='/ForgotPassword' element={<ForgotPasswordPage />} />
                 <Route path='/ResetPassword' element={<ResetPasswordPage />} />
                 <Route path='/skillEvaluation' element={<SkillEvaluationPage />} />
