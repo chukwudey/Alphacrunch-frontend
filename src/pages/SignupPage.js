@@ -5,15 +5,18 @@ import {AiOutlineEye, AiOutlineEyeInvisible, AiOutlineClose} from 'react-icons/a
 import signin_bg from '../assets/signin_bg.png';
 import { product_name } from '../constants/details';
 import LogoBtn from '../components/LogoBtn';
-import { CONFIRM_EMAIL_URL, SIGNUP_URL } from '../constants/links';
+import { CONFIRM_EMAIL_URL, CREATE_WALLET, SIGNUP_URL } from '../constants/links';
 import { Bars } from 'react-loader-spinner';
 import success_gold from '../assets/success_gold.svg';
+import padlock from '../assets/padlock.svg'
 
 const SignupPage = () => {
     const [show, setShow] = useState(false);
-    const [emailConfirmed, setEmailConfirmed] = useState(false);
-    const [showModal, setShowModal] = useState(false);
-    const [loading, setLoading] = useState(false)
+    const [emailConfirmed, setEmailConfirmed] = useState(true);
+    const [showModal, setShowModal] = useState(true);
+    const [loading, setLoading] = useState(false);
+    const [wallet_pin, setWallet_pin] = useState('');
+    const [walletCreation, setWalletCreation] = useState(false);
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -36,7 +39,6 @@ const SignupPage = () => {
     const checkPassword = (e) => {
       setFormData({...formData,password: e.currentTarget.value});
       setShowPasswordStrength(true);
-      console.log(formData);
       if (strongRegex.test(formData.password + e.currentTarget.value)) {
         setPasswordStrength({
           name: 'Strong',
@@ -56,6 +58,25 @@ const SignupPage = () => {
           message: 'The password must contain at least 1 lowercase alphabetical character, 1 uppercase alphabetical character, 1 numeric character and at least one special character'
         });
       }
+    }
+
+    async function handleCreateWallet(e){
+      e.preventDefault();
+      setLoading(true);
+       const user = JSON.parse(localStorage.getItem('user'));
+       console.log(user._id)
+       console.log(wallet_pin);
+       await axios.post(CREATE_WALLET, {
+            wallet_pin,
+            id : user._id
+        }).then(res => {
+            setLoading(false);
+            setEmailConfirmed(true);
+            console.log(res);
+        }).catch(err => {
+            setLoading(false);
+            console.log(err);
+        });
     }
 
     async function handleConfirmEmail(e){
@@ -99,6 +120,45 @@ const SignupPage = () => {
 
   return (
     <div className=' relative ease-in-out 1s'>
+      {showModal && walletCreation && <div className=' bg-white absolute shadow-lg z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-8 py-4 w-3/4 md:w-1/3'>
+            <div className=' text-right left-full w-max p-1 relative cursor-pointer hover:bg-gray-300' onClick={()=>setShowModal(false)}>
+              <AiOutlineClose/>
+            </div>
+            <div className=' mx-auto w-1/5 md:mb-4'>
+              <img src={padlock} alt="success" />
+            </div>
+            <form className=' text-center md:w-3/4 mx-auto' onSubmit={(e)=>handleCreateWallet(e)}>
+              <p className=' md:text-3xl text-lg font-bold'>Set Transaction Pin</p>
+              <p className=' md:text-sm text-xs'>Keep your transaction pin secure, we will never request for it.</p>
+              <div className=' bg-gray-300  p-2 my-2 flex'>
+                <input type={show? 'text': 'password'} 
+                  className=' bg-gray-300 w-full tracking-widest focus:outline-none text-xl text-center' 
+                  placeholder='1234' 
+                  name="otp" 
+                  inputMode='numeric'
+                  value={wallet_pin} 
+                  pattern='^\d{4}$'
+                  typeof=''
+                  max={9999}
+                  min={1000}
+                  maxLength={4}
+                  minLength={4}
+                  onChange={(e)=> setWallet_pin(e.currentTarget.value)}/>
+                  {show? 
+                      <div className={eyeStyle} onClick={()=> setShow(!show)}>
+                          <AiOutlineEyeInvisible />
+                      </div> : 
+                      <div className={eyeStyle} onClick={()=> setShow(!show)}>
+                          <AiOutlineEye />
+                      </div> }
+              </div>
+              <div>
+                <button className=' p-2 bg-black hover:bg-gray-900 text-white text-center rounded-md w-full'>Set Pin</button>
+              </div>
+              <p className=' text-xs text-red-500'>Do not share your pin with another person.</p>
+            </form>
+          </div>
+          }
       {showModal && !emailConfirmed && <div className=' bg-white absolute shadow-lg z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-8 py-4 w-1/3'>
             <div className=' text-right left-full w-max p-1 relative cursor-pointer hover:bg-gray-300' onClick={()=>setShowModal(false)}>
               <AiOutlineClose/>
@@ -126,7 +186,7 @@ const SignupPage = () => {
             </form>
           </div>
           }
-      {showModal && emailConfirmed && <div className=' bg-white absolute shadow-lg z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-8 py-4 w-1/3'>
+      {showModal && emailConfirmed && !walletCreation && <div className=' bg-white absolute shadow-lg z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-8 py-4 w-1/3'>
             <div className=' text-right left-full w-max p-1 relative cursor-pointer hover:bg-gray-300' onClick={()=>setShowModal(false)}>
               <AiOutlineClose/>
             </div>
@@ -134,8 +194,10 @@ const SignupPage = () => {
               <img src={success_gold} alt="success" />
             </div>
             <p className=' text-3xl text-center'>Success</p>
-            <p className=' w-full py-6 text-center'>You can now go and login</p>
-            <Link to='/signin'><p className=' p-2 bg-black text-white text-center rounded-md'>Go To Login</p></Link>
+            <p className=' w-full py-6 text-center'>Your verification is successful, let's start making money</p>
+            <div className=' text-center mx-auto'>
+              <button className=' p-2 bg-black text-white text-center rounded-md' onClick={()=> setWalletCreation(true)}>Set Transaction Pin</button>
+            </div>
           </div>
           }
       <LogoBtn/>
@@ -147,7 +209,7 @@ const SignupPage = () => {
           <form className=' mx-auto p-8 block' onSubmit={(e)=>handleSubmit(e)}>
               <h1 className=' text-center'>Welcome to {product_name}</h1>
               <h2 className=' text-3xl md:text-3xl text-yellow-500 text-center mb-4 '>So good to have you, Chief! <span role='img' aria-label="Waving Hand" className=' border-none'>&#128075;</span></h2>
-              <p className=' text-center text-sm md:text-lg mb-8'>Lets get you started ASAP! Kindly fill in the correct informations</p>
+              <p className=' text-center text-sm md:text-md mb-8'>Lets get you started ASAP! Kindly fill in the correct informations</p>
               <div className=' border-solid border-gray-500 border-2 rounded-lg p-0 overflow-hidden focus:outline-none mx-auto w-2/3 my-4'>
                   <input type="email" 
                     className=' pl-6 pr-1 py-2 w-full' 

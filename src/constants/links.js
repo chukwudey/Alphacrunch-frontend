@@ -7,6 +7,8 @@ export const interlinks ={
 const BASE_URL = 'https://aphacrunch-api.onrender.com';
 
 // eslint-disable-next-line
+export const CREATE_WALLET = `${BASE_URL}/auth/wallet/create`;
+// eslint-disable-next-line
 export const GET_USER_BY_EMAIL = `${BASE_URL}/auth/email`;
 // eslint-disable-next-line
 export const GET_USER_BY_ID = `${BASE_URL}/user/`;
