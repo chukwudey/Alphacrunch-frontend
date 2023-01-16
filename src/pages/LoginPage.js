@@ -74,7 +74,7 @@ const LoginPage = () => {
                       <input type='submit' value='Sign In' className=' text-white block bg-black cursor-pointer rounded-lg px-6 py-4 w-4/6 mx-auto mb-10 text-center'/>
                       : 
                       <button className=' text-white flex justify-center bg-black cursor-pointer rounded-lg px-6 py-4 w-4/6 mx-auto mb-10 text-center'
-                      type="submit">
+                      type="button">
                         <div>
                           <Bars
                             height="20"
