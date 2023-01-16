@@ -80,10 +80,6 @@ const SignupPage = () => {
     async function handleSubmit(e){
       e.preventDefault();
       setLoading(true);
-      console.log(formData);
-      setTimeout(()=>{
-        setLoading(false)
-      }, 1000)
       await axios.post(SIGNUP_URL, {
             email: formData.email,
             password: formData.password,
