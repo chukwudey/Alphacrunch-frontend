@@ -245,7 +245,7 @@ const user = JSON.parse(localStorage.getItem('user'));
         <div className=' hidden md:block h-screen w-5/12'>
           <img src={signin_bg} alt="futuristic computer desk with holographic bitcoin" className=' h-full'/>
         </div>
-        <div className=' w-full md:w-7/12 mt-12 h-screen md:mt-1 overflow-y-scroll'>
+        <div className=' w-full md:w-7/12 mt-12 h-screen md:mt-0 overflow-y-scroll'>
           <form className=' mx-auto p-8 block' onSubmit={(e)=>handleSubmit(e)}>
               <h1 className=' text-center'>Welcome to {product_name}</h1>
               <h2 className=' text-3xl md:text-3xl text-yellow-500 text-center mb-4 '>So good to have you, Chief! <span role='img' aria-label="Waving Hand" className=' border-none'>&#128075;</span></h2>
