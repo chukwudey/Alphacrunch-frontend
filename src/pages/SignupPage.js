@@ -12,8 +12,8 @@ import padlock from '../assets/padlock.svg'
 
 const SignupPage = () => {
     const [show, setShow] = useState(false);
-    const [emailConfirmed, setEmailConfirmed] = useState(true);
-    const [showModal, setShowModal] = useState(true);
+    const [emailConfirmed, setEmailConfirmed] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const [loading, setLoading] = useState(false);
     const [wallet_pin, setWallet_pin] = useState('');
     const [walletCreation, setWalletCreation] = useState(false);
@@ -59,11 +59,10 @@ const SignupPage = () => {
         });
       }
     }
-
+const user = JSON.parse(localStorage.getItem('user'));
     async function handleCreateWallet(e){
       e.preventDefault();
       setLoading(true);
-       const user = JSON.parse(localStorage.getItem('user'));
        console.log(user._id)
        console.log(wallet_pin);
        await axios.post(CREATE_WALLET, {
@@ -82,7 +81,6 @@ const SignupPage = () => {
     async function handleConfirmEmail(e){
       e.preventDefault();
       setLoading(true);
-       const user = JSON.parse(localStorage.getItem('user'));
        console.log(user)
        await axios.post(CONFIRM_EMAIL_URL, {
             otp,
