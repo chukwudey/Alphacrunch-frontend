@@ -12,6 +12,8 @@ import padlock from '../assets/padlock.svg'
 
 const SignupPage = () => {
     const [show, setShow] = useState(false);
+    const [error, setError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
     const [emailConfirmed, setEmailConfirmed] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -31,6 +33,7 @@ const SignupPage = () => {
       message: 'The string must contain at least 1 lowercase alphabetical character, 1 uppercase alphabetical character, 1 numeric character and at least one special character'
     })
     const eyeStyle = ' hover:bg-gray-200 p-3 cursor-pointer';
+    const errStyle = ` mx-auto w-2/3 -mt-4 text-red-500`;
 
     // eslint-disable-next-line
     const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
@@ -71,9 +74,12 @@ const user = JSON.parse(localStorage.getItem('user'));
         }).then(res => {
             setLoading(false);
             setEmailConfirmed(true);
+            setWalletCreation(false);
             console.log(res);
         }).catch(err => {
             setLoading(false);
+            setError(true);
+            setErrorMessage(err.response.data.message)
             console.log(err);
         });
     }
@@ -91,6 +97,8 @@ const user = JSON.parse(localStorage.getItem('user'));
             console.log(res);
         }).catch(err => {
             setLoading(false);
+            setError(true);
+            setErrorMessage(err.response.data.message)
             console.log(err);
         });
     }
@@ -107,17 +115,32 @@ const user = JSON.parse(localStorage.getItem('user'));
         }).then(res => {
             setLoading(false);
             setShowModal(true);
+            setError(false)
             setEmailConfirmed(false)
             console.log(res);
             localStorage.setItem('user',JSON.stringify(res.data.data));
         }).catch(err => {
             setLoading(false);
+            setError(true);
+            setErrorMessage(err.response.data.message)
             console.log(err);
         });
     }
 
   return (
     <div className=' relative ease-in-out 1s'>
+      {loading && 
+      <div className=' absolute shadow-lg z-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+          <Bars
+            height="100"
+            width="300"
+            color="#FFBF00"
+            ariaLabel="bars-loading"
+            wrapperStyle={{}}
+            wrapperClassName=" mx-auto"
+            visible={true}
+            />
+        </div>}
       {showModal && walletCreation && <div className=' bg-white absolute shadow-lg z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-8 py-4 w-3/4 md:w-1/3'>
             <div className=' text-right left-full w-max p-1 relative cursor-pointer hover:bg-gray-300' onClick={()=>setShowModal(false)}>
               <AiOutlineClose/>
@@ -134,6 +157,7 @@ const user = JSON.parse(localStorage.getItem('user'));
                   placeholder='1234' 
                   name="otp" 
                   inputMode='numeric'
+                  disabled={loading}
                   value={wallet_pin} 
                   pattern='^\d{4}$'
                   typeof=''
@@ -150,6 +174,7 @@ const user = JSON.parse(localStorage.getItem('user'));
                           <AiOutlineEye />
                       </div> }
               </div>
+              {error && <p className={errStyle}>{errorMessage}</p>}
               <div>
                 <button className=' p-2 bg-black hover:bg-gray-900 text-white text-center rounded-md w-full'>Set Pin</button>
               </div>
@@ -172,11 +197,13 @@ const user = JSON.parse(localStorage.getItem('user'));
                   placeholder='123456' 
                   name="otp" 
                   inputMode='numeric'
+                  disabled={loading}
                   value={otp} 
                   max={999999}
                   min={100000}
                   onChange={(e)=> setOtp(e.currentTarget.value)}/>
               </div>
+              {error && <p className={errStyle}>{errorMessage}</p>}
               <div>
                 <button className=' p-2 bg-black hover:bg-gray-900 text-white text-center rounded-md'>Confirm Email</button>
               </div>
@@ -193,9 +220,18 @@ const user = JSON.parse(localStorage.getItem('user'));
             </div>
             <p className=' text-3xl text-center'>Success</p>
             <p className=' w-full py-6 text-center'>Your verification is successful, let's start making money</p>
-            <div className=' text-center mx-auto'>
-              <button className=' p-2 bg-black text-white text-center rounded-md' onClick={()=> setWalletCreation(true)}>Set Transaction Pin</button>
-            </div>
+            {wallet_pin === '' ?
+                <div className=' text-center mx-auto'>
+                  <button className=' p-2 bg-black text-white text-center rounded-md' onClick={()=> setWalletCreation(true)}>Set Transaction Pin</button>
+                </div>
+                :
+                <Link to='/signin'>
+                  <div className=' text-center mx-auto'>
+                    <p className=' p-2 bg-black text-white text-center rounded-md'>Login</p>
+                  </div>
+                </Link>
+                
+            }
           </div>
           }
       <LogoBtn/>
@@ -245,25 +281,11 @@ const user = JSON.parse(localStorage.getItem('user'));
                 <input type="checkbox" id='TC' disabled={loading} className=' w-4 h-4 text-gray-500 rounded cursor-point' name="TC" value="TC" required/>
                 <label className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300" htmlFor='TC'>I agree with the <Link to=''><span className=' text-gray-700 dark:text-blue-500 hover:underline'>terms and conditions</span></Link>.</label>
               </div>
-              {!loading? 
-                      <input type='submit' value='Sign Up' className=' text-white block bg-black cursor-pointer rounded-lg px-6 py-4 w-4/6 mx-auto mb-6 text-center'/>
-                      : 
-                      <button className=' text-white flex justify-center bg-black cursor-pointer rounded-lg px-6 py-4 w-4/6 mx-auto mb-6 text-center'
-                      type="button">
-                        <div>
-                          <Bars
-                            height="20"
-                            width="60"
-                            color="#ffffff"
-                            ariaLabel="bars-loading"
-                            wrapperStyle={{}}
-                            wrapperClassName=" mx-auto"
-                            visible={true}
-                          />
-                        </div>
-                        
-                    </button>
-                    }
+              {error && <p className={errStyle}>{errorMessage}</p>}
+
+              {/* Sign up button */}
+              <input type='submit' value='Sign Up' disabled={loading} className={`text-white block ${loading? 'bg-gray-700 cursor-wait': 'bg-black cursor-pointer'}  rounded-lg px-6 py-4 w-4/6 mx-auto mb-6 text-center`}/>
+              
               <p className=' text-center'>Already have an account? <Link to='/signin'><span className=' cursor-pointer text-yellow-500'>Sign In</span></Link> here</p>
           </form>
           

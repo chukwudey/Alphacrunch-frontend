@@ -12,11 +12,14 @@ const LoginPage = () => {
   const navigate = useNavigate();
     const [show, setShow] = useState(false);
     const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
     const [email , setEmail] = useState('');
     const [password , setPassword] = useState('');
 
     const eyeStyle = ' hover:bg-gray-200 p-3 cursor-pointer';
+    const errStyle = ` mx-auto w-2/3 -mt-4 text-red-500`;
 
     async function handleSubmit(e){
       e.preventDefault();
@@ -28,16 +31,31 @@ const LoginPage = () => {
         }).then(res => {
             setLoading(false);
             console.log(res);
+            setError(false)
             localStorage.setItem('user',JSON.stringify(res.data));
             navigate('/dashboard');
         }).catch(err => {
             setLoading(false);
+            setError(true);
+            setErrorMessage(err.response.data.message)
             console.log(err);
         });
     }
 
   return (
     <div className=' relative'>
+      {loading && 
+      <div className=' absolute shadow-lg z-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+          <Bars
+            height="100"
+            width="300"
+            color="#FFBF00"
+            ariaLabel="bars-loading"
+            wrapperStyle={{}}
+            wrapperClassName=" mx-auto"
+            visible={true}
+            />
+        </div>}
       <LogoBtn/>
         <div className=' flex justify-start items-center'>
           <div className=' hidden md:block h-screen w-5/12'>
@@ -70,26 +88,9 @@ const LoginPage = () => {
                 <Link to='/forgot-password'>
                     <p className=' text-yellow-500 cursor-pointer w-4/6 mx-auto mb-8'>Forgot password?</p>
                 </Link>
-                    {!loading? 
-                      <input type='submit' value='Sign In' className=' text-white block bg-black cursor-pointer rounded-lg px-6 py-4 w-4/6 mx-auto mb-10 text-center'/>
-                      : 
-                      <button className=' text-white flex justify-center bg-black cursor-pointer rounded-lg px-6 py-4 w-4/6 mx-auto mb-10 text-center'
-                      type="button">
-                        <div>
-                          <Bars
-                            height="20"
-                            width="60"
-                            color="#ffffff"
-                            ariaLabel="bars-loading"
-                            wrapperStyle={{}}
-                            wrapperClassName=" mx-auto"
-                            visible={true}
-                          />
-                        </div>
-                        
-                    </button>
-                    }
+                <input type='submit' value='Sign In' disabled={loading} className={`text-white block ${loading? 'bg-gray-700 cursor-wait': 'bg-black cursor-pointer'}  rounded-lg px-6 py-4 w-4/6 mx-auto mb-6 text-center`}/>
                 
+                {error && <p className={errStyle}>{errorMessage}</p>}
                 <p className=' text-center mb-6'>New to {product_name}? <Link to='/signup'><span className=' cursor-pointer text-gray-500'>Sign Up</span></Link> here</p>
                 <p className=' text-xs text-center'>By continuing you agree to the <b className=' text-gray-700'>Policy and Rules</b></p>
             </form>
