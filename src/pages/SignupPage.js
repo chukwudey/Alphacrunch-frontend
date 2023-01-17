@@ -79,7 +79,7 @@ const user = JSON.parse(localStorage.getItem('user'));
         }).catch(err => {
             setLoading(false);
             setError(true);
-            setErrorMessage(err.response.data.message)
+            setErrorMessage(err.response.data.message);
             console.log(err);
         });
     }
@@ -107,6 +107,12 @@ const user = JSON.parse(localStorage.getItem('user'));
     async function handleSubmit(e){
       e.preventDefault();
       setLoading(true);
+      if (passwordStrength.name !== 'Strong') {
+        setError(true);
+        setErrorMessage(passwordStrength.message);
+        setLoading(false)
+        return;
+      }
       await axios.post(SIGNUP_URL, {
             email: formData.email,
             password: formData.password,
@@ -128,7 +134,7 @@ const user = JSON.parse(localStorage.getItem('user'));
     }
 
   return (
-    <div className=' relative ease-in-out 1s'>
+    <div className=' relative transition-all ease-in-out duration-300'>
       {loading && 
       <div className=' absolute shadow-lg z-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
           <Bars
@@ -239,7 +245,7 @@ const user = JSON.parse(localStorage.getItem('user'));
         <div className=' hidden md:block h-screen w-5/12'>
           <img src={signin_bg} alt="futuristic computer desk with holographic bitcoin" className=' h-full'/>
         </div>
-        <div className=' w-full md:w-7/12 mt-12 md:mt-2'>
+        <div className=' w-full md:w-7/12 mt-12 h-screen md:mt-1 overflow-y-scroll'>
           <form className=' mx-auto p-8 block' onSubmit={(e)=>handleSubmit(e)}>
               <h1 className=' text-center'>Welcome to {product_name}</h1>
               <h2 className=' text-3xl md:text-3xl text-yellow-500 text-center mb-4 '>So good to have you, Chief! <span role='img' aria-label="Waving Hand" className=' border-none'>&#128075;</span></h2>
@@ -269,8 +275,8 @@ const user = JSON.parse(localStorage.getItem('user'));
                           <AiOutlineEye />
                       </div> }
               </div>
-              {showPasswordStrength && <p className={` mx-auto w-2/3 -mt-2 text-${passwordStrength.color}-500`}>{passwordStrength.name}</p>}
-              {showPasswordStrength && <p className={` text-xs mx-auto w-2/3 text-${passwordStrength.color}-300`}>{passwordStrength.message}</p>}
+              {showPasswordStrength && formData.password !== "" && <p className={` mx-auto w-2/3 -mt-2 text-${passwordStrength.color}-500`}>{passwordStrength.name}</p>}
+              {showPasswordStrength && formData.password !== "" && <p className={` text-xs mx-auto w-2/3 text-${passwordStrength.color}-300`}>{passwordStrength.message}</p>}
               <div className=' border-2 border-solid border-gray-500 rounded-lg p-0 overflow-hidden focus:outline-none mx-auto w-2/3 my-4'>
                   <input type="text" minLength={3} className=' pl-6 pr-1 py-2 w-full' name="fullName" value={formData.fullName} onChange={(e)=> setFormData({...formData,fullName: e.currentTarget.value})} placeholder='Full Name' required/>
               </div>
@@ -281,7 +287,7 @@ const user = JSON.parse(localStorage.getItem('user'));
                 <input type="checkbox" id='TC' disabled={loading} className=' w-4 h-4 text-gray-500 rounded cursor-point' name="TC" value="TC" required/>
                 <label className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300" htmlFor='TC'>I agree with the <Link to=''><span className=' text-gray-700 dark:text-blue-500 hover:underline'>terms and conditions</span></Link>.</label>
               </div>
-              {error && <p className={errStyle}>{errorMessage}</p>}
+              {error && <p className={errStyle + ' text-xs'}>{errorMessage}</p>}
 
               {/* Sign up button */}
               <input type='submit' value='Sign Up' disabled={loading} className={`text-white block ${loading? 'bg-gray-700 cursor-wait': 'bg-black cursor-pointer'}  rounded-lg px-6 py-4 w-4/6 mx-auto mb-6 text-center`}/>
