@@ -1,9 +1,15 @@
-import React from 'react'
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import SideBar from '../components/sidebar/SideBar';
 
 const DashboardPage = () => {
+  
   return (
-    <div>
-      Welcome to dashboard
+    <div className=' flex'>
+      <SideBar/>
+      <div className=' h-screen overflow-y-scroll w-4/5'>
+        <Outlet/>
+      </div>
     </div>
   )
 }

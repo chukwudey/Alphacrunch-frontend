@@ -14,7 +14,8 @@ module.exports = {
       },
       backgroundImage: {
         'striped-down': "url('../src/assets/striped_gray_line_bg.svg')",
-        'striped-up': "url('../src/assets/striped_bg.svg')"
+        'striped-up': "url('../src/assets/striped_bg.svg')",
+        'gold-card': "url('../src/assets/gold_card.png')"
       },
       colors: {
       'pri-pink':{
