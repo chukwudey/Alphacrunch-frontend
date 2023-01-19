@@ -41,7 +41,7 @@ const IndexRoutes = () => {
 
                 <Route path='/dashboard' element={<DashboardPage/>}>
                     <Route index element={<Navigate to='overview'/>}/>
-                    <Route path='overview' element={<Overview/>} />
+                    <Route path='*' element={<Overview/>} />
                 </Route>
                 {/* <Route path='/ForgotPassword' element={<ForgotPasswordPage />} />
                 <Route path='/ResetPassword' element={<ResetPasswordPage />} />

@@ -12,6 +12,7 @@ import BlackBtn from '../components/BlackBtn';
 import FeaturesCard from '../components/FeaturesCard';
 import { interlinks } from '../constants/links';
 import Slider from '../components/slider';
+import { cardNavLinkStyle } from '../constants/styles';
 
 const HomePage = () => {
     const steps = [
@@ -30,7 +31,6 @@ const HomePage = () => {
             description: 'An awesome place to trade securely with no worries or delays.'
         },
     ]
-    const cardNavLinkStyle = ' w-max font-Space-Grotesk font-bold hover:text-black hover:bg-white hover:border-black border-2 border-transparent px-4 py-2 md:px-14 md:py-6 md:rounded-2xl rounded-lg'
     return (
         <div className=' flex flex-col min-h-screen'>
             <Header/>
