@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import { RiArrowDownSFill } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 import {ReactComponent as MapWhite} from '../assets/map_white.svg';
@@ -10,12 +10,11 @@ import winged_bitcoin from '../assets/winged_bitcoin.svg';
 import c_coin from '../assets/c_coin.svg';
 
 const Overview = () => {
-  const [profileImage, setProfilePic] = useState(profile_image_placeholder);
+  // const [profileImage, setProfilePic] = useState(profile_image_placeholder);
   const wallet_balance = '$12,000';
   const user = JSON.parse(localStorage.getItem('user'));
   const cardtransactionstyle = ' text-white text-center text-xs w-1/2 hover:bg-gray-900 bg-black px-4 py-2'
   console.log(user.data);
-  setProfilePic(profile_image_placeholder)
   const user_actions = [{name: "Deposit",url: '', icon: deposit_icon},
                         {name: "Withdraw",url: '', icon: withdraw_icon},
                         {name: "Sell Crypto",url: '', icon: winged_bitcoin},
@@ -27,7 +26,7 @@ const Overview = () => {
         <div className=' pl-6 mt-6'>
           <div className=' flex space-x-4 items-end'>
             <div className=' w-14'>
-              <img src={profileImage} alt="profile"/>
+              <img src={profile_image_placeholder} alt="profile"/>
             </div>
             <div>
               <p className=' text-gray-400 font-inter'>Hello, <span className=' text-yellow-500 font-Space-Grotesk font-semibold'>{user.data.fullName}</span></p>
