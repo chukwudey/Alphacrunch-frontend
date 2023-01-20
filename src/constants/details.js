@@ -5,7 +5,7 @@ import suitcase_flow from '../assets/suitcase_flow.svg';
 import dollar_bitcoin from '../assets/dollar_bitcoin.svg';
 import smooth_flow from '../assets/smooth_flow.svg';
 
-export const product_name = 'Alphacrunch';
+export const product_name = 'AlphaCrunch';
 export const giftcard_card_details = {
     title : 'Giftcard',
     description: 'Our mission at AlphaCrunch is to offer a safe and uniquely user-friendly platform for everyday Nigerians to access the world of cryptocurrency starting with these recognised coins.',
@@ -51,6 +51,8 @@ export const trans_card_details = [
         image: suitcase_flow
     }
 ]
+
+
 
 // eslint-disable-next-line
 export const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
