@@ -8,6 +8,7 @@ import withdraw_icon from '../assets/witdraw_icon.svg';
 import deposit_icon from '../assets/deposit_icon.svg';
 import winged_bitcoin from '../assets/winged_bitcoin.svg';
 import c_coin from '../assets/c_coin.svg';
+import BarChart from './BarChart';
 
 const Overview = () => {
   // const [profileImage, setProfilePic] = useState(profile_image_placeholder);
@@ -38,17 +39,19 @@ const Overview = () => {
                 <DashboardActionBtn name={act.name} icon={act.icon} url={act.url} key={index} />
               ))}
             </div>
-          
+          <div>
+            <BarChart/>
+          </div>
         </div>
       </div>
       <div className=' flex flex-col'>
-        <div className=' flex space-x-1 items-center justify-end cursor-pointer hover:bg-gray-200 p-2 mb-4'>
+        <div className=' absolute right-8 lg:right-0 lg:relative flex space-x-1 items-center justify-end cursor-pointer hover:bg-gray-200 p-2 mb-4'>
             <p className=' font-bold text-gray-600 text-lg '>Balance: <span className=' text-yellow-500'>{wallet_balance}</span> </p>
             <div className=' text-yellow-500 text-xl'>
               <RiArrowDownSFill/>
             </div>
         </div>
-        <div className=' hidden md:block bg-gold-card bg-center bg-contain bg-no-repeat w-60 h-40 pt-8 px-4'>
+        <div className=' hidden lg:block bg-gold-card bg-center bg-contain bg-no-repeat w-60 h-40 pt-8 px-4'>
           <p className=' text-sm font-bold text-gray-600'>Wallet Balance</p>
           <p className=' text-left font-semibold font-Space-Grotesk text-3xl mt-4 mb-2'>{wallet_balance} USD</p>
           <div className=' flex space-x-1 w-full mx-auto justify-between'>
@@ -61,7 +64,7 @@ const Overview = () => {
             </Link>
           </div>
         </div>
-        <div className=' bg-black text-white w-60 p-8 rounded-xl'>
+        <div className=' hidden lg:block bg-black text-white w-60 p-8 rounded-xl'>
           <p className=' text-center font-Space-Grotesk mb-4'>Be limitless, Get a secure wallet address in <span className=' text-yellow-200'>5 seconds</span></p>
           <div className=' w-full'>
             <MapWhite width='100%' height='50%'/>
