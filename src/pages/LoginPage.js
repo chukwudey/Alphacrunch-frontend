@@ -32,7 +32,8 @@ const LoginPage = () => {
             setLoading(false);
             console.log(res);
             setError(false)
-            localStorage.setItem('user',JSON.stringify(res.data));
+            localStorage.setItem('token',JSON.stringify(res.data.token));
+            localStorage.setItem('user',JSON.stringify(res.data.data));
             navigate('/dashboard');
         }).catch(err => {
             setLoading(false);

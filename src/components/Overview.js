@@ -15,37 +15,45 @@ const Overview = () => {
   const wallet_balance = '$12,000';
   const user = JSON.parse(localStorage.getItem('user'));
   const cardtransactionstyle = ' text-white text-center text-xs w-1/2 hover:bg-gray-900 bg-black px-4 py-2'
-  console.log(user.data);
+  console.log(user);
   const user_actions = [{name: "Deposit",url: '', icon: deposit_icon},
                         {name: "Withdraw",url: '', icon: withdraw_icon},
                         {name: "Sell Crypto",url: '', icon: winged_bitcoin},
                         {name: "Buy Crypto",url: '', icon: c_coin}]
   return (
-    <div className=' flex justify-between pl-4 md:pl-8 pr-4 pt-8'>
-      <div>
-        <h1 className=' font-Space-Grotesk font-bold text-lg p-2'>Dashboard</h1>
-        <div className=' pl-6 mt-6'>
-          <div className=' flex space-x-4 items-end'>
-            <div className=' w-14'>
-              <img src={profile_image_placeholder} alt="profile"/>
+    <div className=' flex justify-between mx-auto pl-4 md:pl-8 pr-4 pt-8'>
+      <div className=' w-full'>
+        <h1 className=' hidden md:block font-Space-Grotesk font-bold text-lg p-2'>Dashboard</h1>
+        <div className=' md:pl-6 mt-6'>
+          <div className=' flex space-x-4 justify-between items-center w-max'>
+            <div className=' flex space-x-4 items-end'>
+              <div className=' w-14'>
+                <img src={profile_image_placeholder} alt="profile"/>
+              </div>
+              <div>
+                <p className=' text-gray-400 font-inter text-sm md:text-base'>Hello, <span className=' text-yellow-500 font-Space-Grotesk font-semibold'>{user.fullName}</span></p>
+                <p className=' text-xs'>Welcome to your Dashboard</p>
+              </div>
             </div>
-            <div>
-              <p className=' text-gray-400 font-inter'>Hello, <span className=' text-yellow-500 font-Space-Grotesk font-semibold'>{user.data.fullName}</span></p>
-              <p className=' text-xs'>Welcome to your Dashboard</p>
+            <div className=' flex md:hidden space-x-4 items-center cursor-pointer rounded-md hover:bg-gray-200 p-2'>
+              <p className=' font-bold text-gray-600 text-sm md:text-lg '>Balance: <span className=' text-yellow-500'>{wallet_balance}</span> </p>
+              <div className=' text-yellow-500 text-xl'>
+                <RiArrowDownSFill/>
+              </div>
             </div>
           </div>
-            <div className=' flex space-x-4 mt-10'>
+            <div className=' grid grid-cols-2 gap-2 items-center w-max md:flex md:space-x-4 mt-10 p-2 mb-6'>
               {user_actions.map( (act, index)=> (
                 <DashboardActionBtn name={act.name} icon={act.icon} url={act.url} key={index} />
               ))}
             </div>
-          <div>
+          <div className=' p-2'>
             <BarChart/>
           </div>
         </div>
       </div>
       <div className=' flex flex-col'>
-        <div className=' absolute right-8 lg:right-0 lg:relative flex space-x-1 items-center justify-end cursor-pointer hover:bg-gray-200 p-2 mb-4'>
+        <div className=' absolute right-8 lg:right-0 lg:relative hidden md:flex space-x-1 items-center justify-end cursor-pointer hover:bg-gray-200 p-2 mb-4'>
             <p className=' font-bold text-gray-600 text-lg '>Balance: <span className=' text-yellow-500'>{wallet_balance}</span> </p>
             <div className=' text-yellow-500 text-xl'>
               <RiArrowDownSFill/>

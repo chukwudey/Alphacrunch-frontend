@@ -5,11 +5,11 @@ import { Chart } from "react-google-charts";
 
 const BarChart = (props) => {
 
-  const style = '#703593';
-  const data = [["Amount", "Month", { role: 'style' }], ["jan", 5000, style], ["feb", 25000, style], ["mar", 6000, style], ["apr", 20000, style], ["may", 25000, style], ["jun", 10000, style], ["jul", 4000, style], ["aug", 23000, style], ["sep", 14000, style], ["oct", 19000, style], ["nov", 30000, style], ["dec", 22000, style]];
+  // const style = '#703593';
+  const data = [["Amount", "Month"], ["jan", 5000], ["feb", 25000], ["mar", 6000], ["apr", 20000], ["may", 25000], ["jun", 10000], ["jul", 4000], ["aug", 23000], ["sep", 14000], ["oct", 19000], ["nov", 30000], ["dec", 22000]];
 
   const options = {
-    chartArea: { width: "50%" },
+    chartArea: { width: "100%" },
     isStacked: false,
     hAxis: {
       title: "amount",
@@ -22,7 +22,7 @@ const BarChart = (props) => {
     
   };
   return (
-    <div>
+    <div className=' md:w-full'>
       
       <Chart
           chartType="Bar"
@@ -30,7 +30,6 @@ const BarChart = (props) => {
           width="100%"
           height="300px"
           options={options}
-          legendToggle
         />
     </div>
   );
