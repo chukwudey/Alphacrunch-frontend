@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import {AiOutlineEye, AiOutlineEyeInvisible} from 'react-icons/ai';
 import signin_bg from '../assets/signin_bg.png';
 import { product_name } from '../constants/details';
-import LogoBtn from '../components/LogoBtn';
+import LogoBtn from '../components/buttons/LogoBtn';
 import axios from 'axios';
 import { LOGIN_URL } from '../constants/links';
 import { Bars } from 'react-loader-spinner';

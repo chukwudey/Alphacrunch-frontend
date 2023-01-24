@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {AiOutlineEye, AiOutlineEyeInvisible, AiOutlineClose} from 'react-icons/ai';
 import signin_bg from '../assets/signin_bg.png';
 import { mediumRegex, product_name, strongRegex } from '../constants/details';
-import LogoBtn from '../components/LogoBtn';
+import LogoBtn from '../components/buttons/LogoBtn';
 import axios from 'axios';
 import { PASSWORD_RESET_URL } from '../constants/links';
 import { Bars } from 'react-loader-spinner';

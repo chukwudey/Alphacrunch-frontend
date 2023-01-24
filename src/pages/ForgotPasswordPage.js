@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
 import signin_bg from '../assets/signin_bg.png';
 import { product_name } from '../constants/details';
-import LogoBtn from '../components/LogoBtn';
+import LogoBtn from '../components/buttons/LogoBtn';
 import axios from 'axios';
 import { GET_USER_BY_EMAIL, REQUEST_PASSWORD_CHANGE_URL } from '../constants/links';
 import { Bars } from 'react-loader-spinner';

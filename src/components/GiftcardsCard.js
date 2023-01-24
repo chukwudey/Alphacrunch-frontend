@@ -1,7 +1,7 @@
 import React from 'react';
 import {AiOutlineLoading3Quarters} from 'react-icons/ai';
 import circle_tick_good_black_bg from '../assets/circle_tick_good_black_bg.svg';
-import BlackBtn from './BlackBtn';
+import BlackBtn from './buttons/BlackBtn';
 
 const GiftcardsCard = (props) => {
     const {title,description,list,image} = props;

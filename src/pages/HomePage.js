@@ -8,7 +8,7 @@ import grey_suitcase from '../assets/grey_suitcase.svg';
 import group_phone_coins from '../assets/group_phone_coins.svg';
 import { trans_card_details } from '../constants/details';
 import PaymentSteps from '../components/PaymentSteps';
-import BlackBtn from '../components/BlackBtn';
+import BlackBtn from '../components/buttons/BlackBtn';
 import FeaturesCard from '../components/FeaturesCard';
 import { interlinks } from '../constants/links';
 import Slider from '../components/slider';

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import {AiOutlineEye, AiOutlineEyeInvisible, AiOutlineClose} from 'react-icons/ai';
 import signin_bg from '../assets/signin_bg.png';
 import { product_name } from '../constants/details';
-import LogoBtn from '../components/LogoBtn';
+import LogoBtn from '../components/buttons/LogoBtn';
 import { CONFIRM_EMAIL_URL, CREATE_WALLET, SIGNUP_URL } from '../constants/links';
 import { Bars } from 'react-loader-spinner';
 import success_gold from '../assets/success_gold.svg';

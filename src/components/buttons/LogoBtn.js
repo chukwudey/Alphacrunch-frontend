@@ -1,8 +1,8 @@
 import React from 'react';
-import logo_white from '../assets/logo_white.svg';
-import logo_gold from '../assets/logo_gold.svg';
+import logo_white from '../../assets/logo_white.svg';
+import logo_gold from '../../assets/logo_gold.svg';
 import { Link } from 'react-router-dom';
-import { product_name } from '../constants/details';
+import { product_name } from '../../constants/details';
 
 const LogoBtn = () => {
   return (
