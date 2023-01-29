@@ -5,10 +5,15 @@ import profile_image_placeholder from '../assets/profile_image.png';
 import { GIFTCARDS } from '../constants/details';
 import { Bars } from 'react-loader-spinner';
 import { GET_GIFTCARD } from '../constants/links';
+import spinner from '../assets/Spinner.gif';
 
 const GiftCardPage = () => {
     const wallet_balance = '$12,000';
+    const [show, setShow] = useState(false)
     const [giftcards, setGiftcards] = useState(GIFTCARDS);
+    const [rate, setRate] = useState(0);
+    const [cardImage, setCardImage] = useState(spinner);
+    const [cardName, setCardName] = useState('');
 
     const token = JSON.parse(localStorage.getItem('token'))
     useEffect(() => {
@@ -33,11 +38,48 @@ const GiftCardPage = () => {
             });
             
 
+        }).catch(error=> {
+            console.log(error);
         })
-    }, [])
+    }, []);
+
+
+    const startGiftcardTransaction = (image, rate, name) => {
+        if (rate === 0) {
+            return
+        }
+        setShow(true);
+        setRate(rate);
+        setCardName(name);
+        setCardImage(image);
+    }
     // const user = JSON.parse(localStorage.getItem('user'));
   return (
-    <div className=' border-4 w-full p-8 mx-auto'>
+    <>
+    <div className={`${show? 'flex': 'hidden'} border-4 w-full justify-between p-8 mx-auto transition-all`}>
+        <div className=' border-2 px-8 py-10'>
+            <div className=' flex items-center space-x-4 outline-none focus:outline-none'>
+                <p className=' font-Space-Grotesk font-bold'>Select Currency Type</p>
+                <div className=' bg-gray-200 px-6 py-4'>
+                    <select className=' bg-gray-200' >
+                        <option value="USD">US-USD $</option>
+                        <option value="NGN">NG-NGN ₦</option>
+                    </select>
+                </div>
+            </div>
+            <p>{rate}</p>
+        </div>
+        <div>
+            <div>
+                <p>Order Summary</p>
+                <div>
+                    <img src={cardImage} alt={cardName}/>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div className={`${!show? 'block': 'hidden'} border-4 w-full p-8 mx-auto transition-all`}>
         <div className=' flex justify-between items-end mb-6'>
             <p className=' font-bold font-Space-Grotesk'>Kindly Select The Type of Giftcard</p>
             <div className=' flex'>
@@ -56,7 +98,7 @@ const GiftCardPage = () => {
         </div>
       <div className=' grid gap-1 grid-cols-4 border p-6 border-gray-400 rounded-md mx-auto'>
         {giftcards.length > 0 ? giftcards.map((value,index)=>(
-                <div key={index} className=' hover:bg-gray-400 w-4/5 cursor-pointer p-2 rounded-xl'>
+                <div key={index} className=' hover:bg-gray-400 w-4/5 cursor-pointer p-2 rounded-xl' onClick={()=>startGiftcardTransaction(value.picture_url, value.rate, value.name)}>
                     <img className=' h-full' src={value.picture_url} alt={value.name}/>
                 </div>
         )):
@@ -74,6 +116,7 @@ const GiftCardPage = () => {
         }
       </div>
     </div>
+    </>
   )
 }
 
