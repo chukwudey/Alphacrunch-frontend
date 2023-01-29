@@ -4,6 +4,7 @@ import bitcoin_grey from '../assets/bitcoin_grey.svg';
 import suitcase_flow from '../assets/suitcase_flow.svg';
 import dollar_bitcoin from '../assets/dollar_bitcoin.svg';
 import smooth_flow from '../assets/smooth_flow.svg';
+import spinner from '../assets/Spinner.gif'
 
 export const product_name = 'AlphaCrunch';
 export const giftcard_card_details = {
@@ -50,6 +51,21 @@ export const trans_card_details = [
         description: 'An awesome place to trade securely with no worries or delay.',
         image: suitcase_flow
     }
+]
+
+export const GIFTCARDS = [
+    {name : '', picture_url : spinner },
+    {name : '', picture_url : spinner },
+    {name : '', picture_url : spinner },
+    {name : '', picture_url : spinner },
+    {name : '', picture_url : spinner },
+    {name : '', picture_url : spinner },
+    {name : '', picture_url : spinner },
+    {name : '', picture_url : spinner },
+    {name : '', picture_url : spinner },
+    {name : '', picture_url : spinner },
+    {name : '', picture_url : spinner },
+    {name : '', picture_url : spinner },
 ]
 
 

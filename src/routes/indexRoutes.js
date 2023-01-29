@@ -9,6 +9,7 @@ import ForgotPasswordPage from '../pages/ForgotPasswordPage';
 import ResetPasswordPage from '../pages/ResetPasswordPage';
 import DashboardPage from '../pages/DashboardPage';
 import Overview from '../components/Overview';
+import GiftCardPage from '../components/GiftCardPage';
 
 const IndexRoutes = () => {
     
@@ -41,6 +42,7 @@ const IndexRoutes = () => {
 
                 <Route path='/dashboard' element={<DashboardPage/>}>
                     <Route index element={<Navigate to='overview'/>}/>
+                    <Route path='giftcards' element={<GiftCardPage/>} />
                     <Route path='*' element={<Overview/>} />
                 </Route>
                 {/* <Route path='/ForgotPassword' element={<ForgotPasswordPage />} />

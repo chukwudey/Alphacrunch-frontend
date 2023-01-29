@@ -23,7 +23,7 @@ const SideBar = () => {
         <Link to='/'><h2 className=' block mt-4 text-lg md:text-3xl text-center font-bold font-Space-Grotesk md:mb-12'>{product_name}</h2></Link>
        <div className=' relative'>
             <p className=' cursor-pointer hover:bg-yellow-700 hover:text-white px-2 py-1 text-xl font-bold md:hidden block rounded-md' onClick={()=>setShow(!show)} >{show? <>&#9932;</>: <>&#9778;</>}</p>
-            <nav className={`${show? 'flex' : 'hidden' } md:flex flex-col md:space-y-12 mx-auto z-50 absolute md:static right-full  p-4 md:p-0`}>
+            <nav className={`${show? 'flex' : 'hidden' } md:flex flex-col md:space-y-12 mx-auto z-50 bg-pri-pink md:bg-transparent absolute md:static right-full  p-4 md:p-0`}>
                 <div>
                     <NavLink exact='true' className={({isActive}) => isActive?  navLinkStyleDefault + ' bg-black  text-white'  : navLinkStyleDefault + ' text-black'} to='overview'>
                         <div className=' flex justify-start items-center space-x-6'>

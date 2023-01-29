@@ -24,3 +24,6 @@ export const CONFIRM_EMAIL_URL = `${BASE_URL}/auth/confirm-email`;
 export const REQUEST_PASSWORD_CHANGE_URL = `${BASE_URL}/auth/request-password-change`;
 // eslint-disable-next-line
 export const PASSWORD_RESET_URL = `${BASE_URL}/auth/reset-password`;
+
+// eslint-disable-next-line
+export const GET_GIFTCARD = `${BASE_URL}/giftcard/giftcards`;

@@ -20,8 +20,7 @@ const Overview = () => {
   const oldDate = new Date();
   const newDate = oldDate.toDateString();
   const user = JSON.parse(localStorage.getItem('user'));
-  const cardtransactionstyle = ' text-white text-center text-2xs w-1/2 hover:bg-gray-900 bg-black px-4 py-2'
-  console.log(user);
+  const cardtransactionstyle = ' text-white text-center text-2xs w-1/2 hover:bg-gray-900 bg-black px-4 py-2';
   const user_actions = [{name: "Deposit",url: '', icon: deposit_icon},
                         {name: "Withdraw",url: '', icon: withdraw_icon},
                         {name: "Sell Crypto",url: '', icon: winged_bitcoin},
