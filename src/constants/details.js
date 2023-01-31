@@ -68,7 +68,13 @@ export const GIFTCARDS = [
     {name : '', picture_url : spinner, rate: 0 },
 ]
 
-
+export const SupportedCurrencies = [
+    {name: "US Dollar", symbol: "$", code: "USD"}, 
+    {name: "NG Naira", symbol: "₦", code: "NGN"},];
+export const CardTypes= {
+    physical: "Physical Card",
+    eCode: "E-Code"
+}
 
 // eslint-disable-next-line
 export const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");

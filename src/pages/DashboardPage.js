@@ -5,9 +5,9 @@ import SideBar from '../components/sidebar/SideBar';
 const DashboardPage = () => {
   
   return (
-    <div className=' block md:flex'>
+    <div className=' block lg:flex'>
       <SideBar/>
-      <div className=' h-screen md:overflow-y-scroll md:w-4/5'>
+      <div className=' h-screen lg:overflow-y-scroll lg:w-4/5'>
         <Outlet/>
       </div>
     </div>
